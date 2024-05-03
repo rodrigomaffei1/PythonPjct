@@ -3,7 +3,7 @@ import string
 
 # Funcao para gerar uma senha aleatoria
 def gerar_senha(tamanho=12):
-    caracteres = string.ascii_letters + string.digits 
+    caracteres = string.ascii_letters + string.digits
     senha = ''.join(random.choice(caracteres) for _ in range(tamanho))
     return senha
 
@@ -21,11 +21,17 @@ def main():
             senha = gerar_senha(tamanho)
             print("senha Gerada:", senha)
 
-            continuar = input("Deseja gerar outra senha? (s/n) ")
+            while True:
+                continuar = input("Deseja gerar outra senha? (s/n) ")
+                if continuar.lower() == 's' or continuar.lower() == 'n' :
+                    break
+                else:
+                    print("Por favor, digite 's' para sim ou 'n' para nao.")
+
             if continuar.lower() != 's':
                 break
         except ValueError:
-            print("Por favor, digite um numero valido apra o tamanho da senha.")
+            print("Por favor, digite um numero valido para o tamanho da senha.")
 
     print("Obrigado por usar o Gerador de Senhas. Programa encerrado.")
 
