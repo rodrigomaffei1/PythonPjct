@@ -18,5 +18,6 @@ def main():
 
     print("Programa encerrado.")
 
-if __name__ == "main__":
+
+if  __name__ == "__main__":
     main()
